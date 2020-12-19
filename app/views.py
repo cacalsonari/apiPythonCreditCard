@@ -1,34 +1,31 @@
 #from django.shortcuts import render
 from django.http.response import JsonResponse
-from rest_framework.parsers import JSONParser
 
-from rest_framework import generics
-from rest_framework.decorators import api_view
+from rest_framework.parsers import JSONParser
+from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 
 from .models import CreditCardModel
 from .serializers import CreditCardSerializer
 
 
 
-class CreditCardView(generics.ListCreateAPIView):
-    queryset = CreditCardModel.objects.all()
-    serializer_class = CreditCardSerializer
+class CreditCardView(APIView):
+    permission_classes = (IsAuthenticated,) 
 
-@api_view(['GET', 'POST'])
-def CreditCardList(request):
-    if request.method == 'GET':
+    def get(self, request):
         allCreditCard = CreditCardModel.objects.all()
-        creditCardId = request.query_params.get('key', None)
+        creditCardId = request.query_params.get('id', None)
         if creditCardId is not None:
             result = allCreditCard.filter(id__icontains=creditCardId)
         else:
             result = allCreditCard
-        
+            
         serializer_result = CreditCardSerializer(result, many=True)
         return JsonResponse(serializer_result.data, safe=False)
 
-    elif request.method == 'POST':
+    def post(self, request):
         data = JSONParser().parse(request)
         dataSerializer = CreditCardSerializer(data=data)
         if dataSerializer.is_valid(raise_exception=True):
