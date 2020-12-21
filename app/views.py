@@ -18,7 +18,7 @@ class CreditCardView(APIView):
         allCreditCard = CreditCardModel.objects.all()
         creditCardId = request.query_params.get('id', None)
         if creditCardId is not None:
-            result = allCreditCard.filter(id__icontains=creditCardId)
+            result = allCreditCard.filter(id=creditCardId)
         else:
             result = allCreditCard
             
