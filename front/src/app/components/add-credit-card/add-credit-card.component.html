@@ -22,29 +22,36 @@
         </div>
       </div>
     </div>
+    <div class="notification is-success" *ngIf="submitted === true">
+      <button class="delete" (click)="submitted=false"></button>
+      Dados salvo com sucesso!
+    </div>
     <div class="field">
         <label class="label">Nome</label>
         <div class="control">
-            <input class="input" id="holder" name="holder" type="text" [(ngModel)]="creditcard.holder" placeholder="Exe: Teste" required>
-            <p *ngIf="creditcard.holder.errors.required" class="help is-danger">This email is invalid</p>
+            <input class="input" id="holder" name="holder" type="text" [(ngModel)]="creditcard.holder" placeholder="Exe: Teste" >
+            <p *ngIf="error['holder']" class="help is-danger">{{error['holder']}}</p>
         </div>
     </div>
     <div class="field">
         <label class="label">Número</label>
         <div class="control">
-            <input class="input" type="text" [(ngModel)]="creditcard.number" placeholder="Text input" minlength="16" maxlength="16" required>
+            <input class="input" type="text" [(ngModel)]="creditcard.number" placeholder="Exe: 4539578763621486" >
+            <p *ngIf="error['number']" class="help is-danger">{{error['number']}}</p>
         </div>
     </div>
     <div class="field">
         <label class="label">Data Expiração</label>
         <div class="control">
-            <input class="input" type="text" [(ngModel)]="creditcard.exp_date" placeholder="Text input" required>
+            <input class="input" type="text" [(ngModel)]="creditcard.exp_date" placeholder="Exe: 07/22" >
+            <p *ngIf="error['exp_date']" class="help is-danger">{{error['exp_date']}}</p>
         </div>
     </div>
     <div class="field">
         <label class="label">Cvv</label>
         <div class="control">
-            <input class="input" type="text" [(ngModel)]="creditcard.cvv" placeholder="Text input">
+            <input class="input" type="text" [(ngModel)]="creditcard.cvv" placeholder="Exe: 1324">
+            <p *ngIf="error['cvv']" class="help is-danger">{{error['cvv']}}</p>
         </div>
     </div>
       

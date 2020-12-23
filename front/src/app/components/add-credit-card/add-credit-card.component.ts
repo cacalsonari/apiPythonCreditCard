@@ -15,6 +15,7 @@ export class AddCreditCardComponent implements OnInit {
     cvv: ''
   };
   submitted = false;
+  error = false;
 
   constructor(private creditCardService: CreditCardService) { }
 
@@ -34,15 +35,16 @@ export class AddCreditCardComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
+          this.error = false;
           this.newCC();
         },
         error => {
-          console.log(error);
+          this.error = error["error"];
+          this.submitted = false;
         });
   }
 
   newCC(): void {
-    this.submitted = false;
     this.creditcard = {
       holder: '',
       number: '',

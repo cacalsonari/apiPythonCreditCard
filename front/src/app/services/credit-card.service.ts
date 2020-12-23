@@ -13,31 +13,23 @@ export class CreditCardService {
   token: string
   header: any
 
-  ngOnInit(): void {
-    this.token = 'd3a33e50b046e9278591c3a3536b0c20b3908c64'//localStorage.getItem('token') || null;
-    if(this.token !== null){
-      this.header = {
-        headers: {'Authorization': 'Token d3a33e50b046e9278591c3a3536b0c20b3908c64'}
-      }
-    } 
-    
-  }
+  ngOnInit(): void {}
 
   getAllCC(): Observable<any> {
     return this.http.get(`${baseUrl}/credit-card`, {
-      headers: {'Authorization': 'Token d3a33e50b046e9278591c3a3536b0c20b3908c64'}
+      headers: {'Authorization': 'Token f1abc72c59dc232f61057ce68f37d2093c7ab171'}
     });
   }
 
   get(id: any): Observable<any> {  
     return this.http.get(`${baseUrl}/credit-card?id=${id}`, {
-      headers: {'Authorization': 'Token d3a33e50b046e9278591c3a3536b0c20b3908c64'}
+      headers: {'Authorization': 'Token f1abc72c59dc232f61057ce68f37d2093c7ab171'}
     });  
   }
 
   addCC(data:any): Observable<any> {
     return this.http.post(`${baseUrl}/credit-card`, data, {
-      headers: {'Authorization': 'Token d3a33e50b046e9278591c3a3536b0c20b3908c64'}
+      headers: {'Authorization': 'Token f1abc72c59dc232f61057ce68f37d2093c7ab171'}
     });
   }
 }
