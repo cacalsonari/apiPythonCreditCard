@@ -57,6 +57,6 @@
       
     <div class="field is-centered is-grouped">
         <div class="control">
-          <button class="button is-success is-link" (click)="submit()">Submit</button>
+          <button class="button is-success is-link" [disabled]="loading === true" [ngClass]="{'is-loading':loading === true}" (click)="submit()">Submit</button>
         </div>
     </div>

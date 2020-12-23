@@ -16,6 +16,7 @@ export class AddCreditCardComponent implements OnInit {
   };
   submitted = false;
   error = false;
+  loading = false;
 
   constructor(private creditCardService: CreditCardService) { }
 
@@ -29,15 +30,17 @@ export class AddCreditCardComponent implements OnInit {
       exp_date: this.creditcard.exp_date,
       cvv: this.creditcard.cvv
     };
-
+    this.loading = true;
     this.creditCardService.addCC(data)
       .subscribe(
         response => {
+          this.loading = false;
           this.submitted = true;
           this.error = false;
           this.newCC();
         },
         error => {
+          this.loading = false;
           this.error = error["error"];
           this.submitted = false;
         });
