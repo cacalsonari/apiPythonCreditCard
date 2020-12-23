@@ -7,21 +7,23 @@
 
 ## Para execução - back
 
-bash
-# permitir chamada de api
+```bash
+#permitir chamada de api
 $ python manage.py runserver
 
-# executar testes presente na pasta app/tests
+#executar testes presente na pasta app/tests
 $ python -m pytest tests.py
+```
 
 ## Para execução - front
 
-bash
+```bash
 # instalar dependencias 
 $ npm install
 
 # rodar projeto 
 $ ng serve
+```
 
 ## Documentação APIs
 
