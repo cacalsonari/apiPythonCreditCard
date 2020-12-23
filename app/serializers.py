@@ -60,11 +60,8 @@ class CreditCardSerializer(serializers.ModelSerializer):
 
     def validate_cvv(self, value):
         #verify if cvv has less than 3 numbers and more than 4 number
-        cvv = str(value)
-        if len(cvv) < 3:
+        if len(value) > 0  and len(value) < 3:
             raise serializers.ValidationError("cvv has less than 3 numbers")
-        if len(cvv) > 4:
-            raise serializers.ValidationError("cvv has more than 4 numbers")
                     
         return value  
 
