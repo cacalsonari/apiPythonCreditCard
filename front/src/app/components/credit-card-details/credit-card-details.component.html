@@ -1,0 +1,42 @@
+<div class="checkout" *ngIf="creditCardInfo !== undefined">
+  <div class="credit-card-box">
+    <div class="flip">
+      <div class="front">
+        <div class="chip"></div>
+        <div class="logo">
+          <div>
+            {{creditCardInfo.brand}}
+          </div>
+        </div>
+        <div class="number">XXXX-XXXX-XXXX-XXXX</div>
+          <div class="card-holder">
+            <label>Card holder</label>
+            <div>{{creditCardInfo.holder}}</div>
+          </div>
+          <div class="card-expiration-date">
+            <label>Expires</label>
+            <div>{{creditCardInfo.exp_date}}</div>
+          </div>
+        </div>
+        <div class="back">
+          <div class="strip"></div>
+          <div class="ccv">
+            <label>CCV</label>
+          <div>{{creditCardInfo.cvv}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="creditCardInfo === undefined" class="userNotFound">
+  <article class="media">    
+    <div class="media-content">
+      <div class="content has-text-centered ">
+        <br>
+        <h4>Cartão não encontrado! Clique <a routerLink="/">aqui</a> para voltar.</h4>
+        <img src="../../../assets/card_not_found.png" width="64px" height="64">    
+      </div>
+    </div>
+    
+  </article>
+</div>

@@ -1,0 +1,55 @@
+<div class="checkout">
+    <div class="credit-card-box">
+      <div class="flip">
+        <div class="front">
+          <div class="chip"></div>
+          <div class="number">{{creditcard.number}}</div>
+          <div class="card-holder">
+            <label>Nome</label>
+            <div>{{creditcard.holder}}</div>
+          </div>
+          <div class="card-expiration-date">
+            <label>Data Expiração</label>
+            <div>{{creditcard.exp_date}}</div>
+          </div>
+        </div>
+        <div class="back">
+          <div class="strip"></div>
+          <div class="ccv">
+            <label>CCV</label>
+            <div>{{creditcard.cvv}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+            <input class="input" id="holder" name="holder" type="text" [(ngModel)]="creditcard.holder" placeholder="Exe: Teste" required>
+            <p *ngIf="creditcard.holder.errors.required" class="help is-danger">This email is invalid</p>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Número</label>
+        <div class="control">
+            <input class="input" type="text" [(ngModel)]="creditcard.number" placeholder="Text input" minlength="16" maxlength="16" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Data Expiração</label>
+        <div class="control">
+            <input class="input" type="text" [(ngModel)]="creditcard.exp_date" placeholder="Text input" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Cvv</label>
+        <div class="control">
+            <input class="input" type="text" [(ngModel)]="creditcard.cvv" placeholder="Text input">
+        </div>
+    </div>
+      
+    <div class="field is-centered is-grouped">
+        <div class="control">
+          <button class="button is-success is-link" (click)="submit()">Submit</button>
+        </div>
+    </div>

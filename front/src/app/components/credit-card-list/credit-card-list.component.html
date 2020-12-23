@@ -1,0 +1,35 @@
+<div *ngIf="creditCardList.length === 0 ">  
+  <article class="media">
+    <div class="media-content">
+      <div class="content has-text-centered">
+        Nenhum cartão cadastrado! Clique em "Cadastro" e adicione um cartão na lista :)
+      </div>
+    </div>
+  </article>    
+</div>
+
+<table *ngIf="creditCardList.length > 0 " class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Válido até</th>
+        <th>Bandeira</th>
+        <th>Cvv</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let creditCard of creditCardList; let i = index">
+          <th>{{ creditCard.id }}</th>
+          <td>{{ creditCard.holder }}</td>
+          <td>{{ creditCard.exp_date }}</td>
+          <td>{{ creditCard.brand }}</td>
+          <td>{{ creditCard.cvv }}</td>
+          <td><button class="button is-success" routerLink="/credit-card/{{ creditCard.id }}"><i class="fa fa-plus " aria-hidden="true"></i></button></td>
+        </tr>
+    </tbody>
+</table>
+
+
+   
