@@ -63,7 +63,7 @@ class CreditCardSerializer(serializers.ModelSerializer):
         if len(value) > 0  and len(value) < 3:
             raise serializers.ValidationError("cvv has less than 3 numbers")
         #verify if cvv has only numbers
-        if re.match(r'^([\s\d]+)$', value) is None:
+        if len(value) > 0  and re.match(r'^([\s\d]+)$', value) is None:
             raise serializers.ValidationError("cvv accept only numbers")
                     
         return value  
