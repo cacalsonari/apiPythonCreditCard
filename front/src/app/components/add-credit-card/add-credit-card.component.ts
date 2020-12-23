@@ -33,7 +33,6 @@ export class AddCreditCardComponent implements OnInit {
     this.creditCardService.addCC(data)
       .subscribe(
         response => {
-          console.log(response);
           this.submitted = true;
           this.error = false;
           this.newCC();

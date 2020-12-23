@@ -1,3 +1,8 @@
+<div class="notification is-danger" *ngIf="error !== false">
+  <button class="delete" (click)="error=false"></button>
+  <center>{{error['message']}}</center>
+</div>
+
 <div *ngIf="creditCardList.length === 0 ">  
   <article class="media">
     <div class="media-content">

@@ -26,11 +26,8 @@ export class CreditCardDetailsComponent implements OnInit {
       .subscribe(
         data => {
           this.creditCardInfo = data[0];
-          console.log(data[0]);
         },
-        error => {
-          console.log(error);
-        }
+        error => { }
       ); 
   }
 

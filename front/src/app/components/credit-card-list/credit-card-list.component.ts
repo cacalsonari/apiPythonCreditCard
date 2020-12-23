@@ -10,7 +10,8 @@ export class CreditCardListComponent implements OnInit {
 
   constructor(private creditCardService: CreditCardService) { }
 
-  creditCardList:any
+  creditCardList:any;
+  error = false;
 
   ngOnInit(): void {
     this.creditCardList = []
@@ -22,9 +23,9 @@ export class CreditCardListComponent implements OnInit {
       .subscribe(
         data => {
           this.creditCardList = data;
-          console.log(data);
         },
         error => {
+          this.error = error;
           console.log(error);
         }
       );  
