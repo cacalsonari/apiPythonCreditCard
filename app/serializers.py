@@ -1,15 +1,13 @@
 import re
 import calendar
-import Crypto
 
-from Crypto import Random
-from Crypto.PublicKey import RSA
 
 from datetime import datetime
 from creditcard import CreditCard
 from rest_framework import serializers
 
 from .models import CreditCardModel
+from .functions import creditCardFunctions
 
 class CreditCardSerializer(serializers.ModelSerializer):
     class Meta:
@@ -56,11 +54,8 @@ class CreditCardSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("brand not found for this number")
         
         #encrypt credit card number
-        randomGenerator = Random.new().read
-        key = RSA.generate(1024, randomGenerator) #generate public and privite key
-        publickey = key.publickey() # public key export for exchange
-        encryptedValue = publickey.encrypt(value.encode('utf-8'), 32)
-
+        encryptedValue = creditCardFunctions.encrypt_value(value)
+        
         return encryptedValue
 
     def validate_cvv(self, value):
@@ -72,3 +67,10 @@ class CreditCardSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("cvv has more than 4 numbers")
                     
         return value  
+
+    def to_representation(self, instance):
+        representation = super(CreditCardSerializer, self).to_representation(instance)
+        value = representation['number']
+        representation['number'] = creditCardFunctions.decrypt_value(bytes(value, 'utf-8'))
+        
+        return representation
