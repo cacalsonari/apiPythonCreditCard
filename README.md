@@ -1,9 +1,9 @@
 # Projeto em python para cadastros de cartão de crédito
 
 ## Motivação
-#### Para o back, o projeto foi desenvolvido em python, e utilizei o Django Rest Framework para as APIs. Para a persistência dos dados, utilizei o MySQL. E, para testar as requisições, utilizei o pytest. Além disso, para fazer a criptografia do número do cartão de crédito, foi utilizado a lib cryptography. Para a verificação do número do cartão de crédito e para descobrir a bandeira do cartão de crédito informado, foi utilizando a lib [creditcard](https://github.com/MaisTodos/backend-python-creditcard). 
-#### Para o front, o projeto foi desenvolvido em angular - [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5 
-#### As escolhas de frameworks, libs e etc. para o projeto foram tomadas com base no meu conhecimento prévio e nas pesquisas realizadas ao longo do desenvolvimento.
+Para o back, o projeto foi desenvolvido em python, e utilizei o Django Rest Framework para as APIs. Para a persistência dos dados, utilizei o MySQL. E, para testar as requisições, utilizei o pytest. Além disso, para fazer a criptografia do número do cartão de crédito, foi utilizado a lib cryptography. Para a verificação do número do cartão de crédito e para descobrir a bandeira do cartão de crédito informado, foi utilizando a lib [creditcard](https://github.com/MaisTodos/backend-python-creditcard). 
+Para o front, o projeto foi desenvolvido em angular - [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5 
+As escolhas de frameworks, libs e etc. para o projeto foram tomadas com base no meu conhecimento prévio e nas pesquisas realizadas ao longo do desenvolvimento.
 
 ## Para execução - back
 
