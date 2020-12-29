@@ -6,6 +6,7 @@ app/__pycache__/
 app/tests/__pycache__/
 app/tests/.pytest_cache
 app/migrations/__pycache__/
+maisTodosBack/__pycache__/
 *.pyc
 
 env/
