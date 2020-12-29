@@ -8,7 +8,7 @@ Para o front, o projeto foi desenvolvido em angular - [Angular CLI](https://gith
 As escolhas de frameworks, libs e etc. para o projeto foram tomadas com base no meu conhecimento prévio e nas pesquisas realizadas ao longo do desenvolvimento.
 
 ## Para execução - back
-# Rodar Projeto 
+### Rodar Projeto 
 
 1. Instalar dependencias presente no arquivo requirements.txt
 2. Aplicar as migrações
@@ -19,9 +19,9 @@ $ python manage.py migrate
 ```bash
 $ python manage.py runserver
 ```
-4. Realizar as chamadas de api, as quais podem ser feitas pelo front ou de acordo com os exemplos fornecidos na seção "Documentação APIs"
+4. Realizar as chamadas de api, as quais podem ser feitas pelo front ou de acordo com os exemplos fornecidos na seção ["Documentação APIs"][https://github.com/cacalsonari/apiPythonCreditCard/blob/main/README.md#documentação-apis]
 
-# Rodar Testes
+### Rodar Testes
 
 1. Entrar na pasta app/tests
 ```bash
