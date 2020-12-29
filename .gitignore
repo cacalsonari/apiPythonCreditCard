@@ -1,0 +1,13 @@
+.vscode/
+
+#
+.pytest_cache
+app/__pycache__/
+app/tests/__pycache__/
+app/tests/.pytest_cache
+app/migrations/__pycache__/
+*.pyc
+
+env/
+
+front/node_modules/
