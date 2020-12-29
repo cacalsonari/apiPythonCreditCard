@@ -10,7 +10,7 @@ As escolhas de frameworks, libs e etc. para o projeto foram tomadas com base no 
 ## Para execução - back
 ### Rodar Projeto 
 
-1. Instalar dependencias presente no arquivo requirements.txt
+1. Instalar dependências presente no arquivo requirements.txt
 2. Aplicar as migrações
 ```bash
 $ python manage.py migrate
@@ -19,7 +19,7 @@ $ python manage.py migrate
 ```bash
 $ python manage.py runserver
 ```
-4. Realizar as chamadas de api, as quais podem ser feitas pelo front ou de acordo com os exemplos fornecidos na seção ["Documentação APIs"][https://github.com/cacalsonari/apiPythonCreditCard/blob/main/README.md#documentação-apis]
+4. Realizar as chamadas de api, as quais podem ser feitas pelo front ou de acordo com os exemplos fornecidos na seção ["Documentação APIs"](https://github.com/cacalsonari/apiPythonCreditCard/blob/main/README.md#documentação-apis)
 
 ### Rodar Testes
 
@@ -37,7 +37,7 @@ $ python -m pytest tests.py
 ```bash
 $ cd front
 ```
-2. Instalar dependencias 
+2. Instalar dependências 
 ```bash
 $ npm install
 ```
@@ -50,18 +50,18 @@ $ ng serve
 
 ## Documentação APIs
 
-### Api para autenticação e conceder acesso a outra api
+### Api para autenticação e conceder acesso as outras apis
 #### Método: POST
 #### URL: http://127.0.0.1:8000/api/v1/token-auth
 #### Parâmetros
       username: string
       password: string
-#### Exemplo requisição POST como admnistrador: 
+#### Exemplo requisição POST como administrador: 
       {
           "username": "admin",
           "password": 123456
       }
-#### Exemplo requisição POST como admnistrador utilizando [HTTPie](https://httpie.io): 
+#### Exemplo requisição POST como administrador utilizando [HTTPie](https://httpie.io): 
     http post http://127.0.0.1:8000/api/v1/token-auth username=admin password=123456
 
 #### Retorno da api
