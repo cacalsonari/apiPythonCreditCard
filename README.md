@@ -1,29 +1,50 @@
 # Projeto em python para cadastros de cartão de crédito
 
 ## Motivação
-Para o back, o projeto foi desenvolvido em python, e utilizei o Django Rest Framework para as APIs. Para a persistência dos dados, utilizei o MySQL. E, para testar as requisições, utilizei o pytest. Além disso, para fazer a criptografia do número do cartão de crédito, foi utilizado a lib cryptography. Para a verificação do número do cartão de crédito e para descobrir a bandeira do cartão de crédito informado, foi utilizando a lib [creditcard](https://github.com/MaisTodos/backend-python-creditcard).
+Para o back, o projeto foi desenvolvido em python, e utilizei o Django Rest Framework para as APIs. Para a persistência dos dados, utilizei o MySQL. E, para testar as requisições, utilizei o pytest. Além disso, para fazer a criptografia do número do cartão de crédito, foi utilizado a lib cryptography. Para a verificação do número do cartão de crédito e para descobrir a bandeira do cartão de crédito informado, foi utilizando a lib [creditcard](https://github.com/MaisTodos/python-creditcard).
 
 Para o front, o projeto foi desenvolvido em angular - [Angular CLI](https://github.com/angular/angular-cli) versão 11.0.5, e [bulma](https://bulma.io) como framework css.
 
 As escolhas de frameworks, libs e etc. para o projeto foram tomadas com base no meu conhecimento prévio e nas pesquisas realizadas ao longo do desenvolvimento.
 
 ## Para execução - back
+# Rodar Projeto 
 
+1. Instalar dependencias presente no arquivo requirements.txt
+2. Aplicar as migrações
 ```bash
-#permitir chamada de api - certifique-se de que estará rodando na porta 8000 para testar o front
+$ python manage.py migrate
+```
+3. Rodar a aplicação para realizar as chamadas de api (certifique-se de que estará rodando na porta 8000 para testar o front)
+```bash
 $ python manage.py runserver
+```
+4. Realizar as chamadas de api, as quais podem ser feitas pelo front ou de acordo com os exemplos fornecidos na seção "Documentação APIs"
 
-#executar testes presente na pasta app/tests
+# Rodar Testes
+
+1. Entrar na pasta app/tests
+```bash
+$ cd app/tests
+```
+2. Executar os testes presente no arquivo tests.py
+```bash
 $ python -m pytest tests.py
 ```
 
 ## Para execução - front
-
+1. Entrar na pasta front
 ```bash
-# instalar dependencias 
+$ cd front
+```
+2. Instalar dependencias 
+```bash
 $ npm install
+```
+3. Instalar angular client 11 caso ainda não tenha - tutorial para ubuntu [aqui](https://tecadmin.net/install-angular-on-ubuntu/)
 
-# rodar projeto 
+4. Executar o projeto
+```bash
 $ ng serve
 ```
 
@@ -34,7 +55,7 @@ $ ng serve
 #### URL: http://127.0.0.1:8000/api/v1/token-auth
 #### Parâmetros
       username: string
-      password: int
+      password: string
 #### Exemplo requisição POST como admnistrador: 
       {
           "username": "admin",
@@ -94,8 +115,3 @@ $ ng serve
             "number": "************1486"
         }
     ]
-
-#### Dependencias projeto
-Back: python 3.7.6, django, djangorestframework, django-cors-headers, pytest, [python-creditcard](https://github.com/MaisTodos/backend-python-creditcard), cryptography.
-
-Front: npm, node, [angular-cli](https://github.com/angular/angular-cli) versão 11.0.5 e [bulma](https://bulma.io).
