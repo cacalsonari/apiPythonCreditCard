@@ -10,14 +10,14 @@ As escolhas de frameworks, libs e etc. para o projeto foram tomadas com base no 
 ## Para execução - back
 ### Rodar Projeto 
 
-1. Instalar dependências do projeto presente no arquivo requirements.txt
+1. Instalar dependências do projeto presentes no arquivo requirements.txt
 ```bash
 $ pip install -r requirements.txt
 ```
-   1.1. Caso de algum problema com a instalação da lib creditcard, baixar o repositório .zip [aqui](https://github.com/MaisTodos/python-creditcard) e então instalar
-   ```bash
-   $ pip install python-creditcard-main.zip
-   ```
+1.1. Caso de algum problema com a instalação da lib creditcard, baixar o repositório .zip [aqui](https://github.com/MaisTodos/python-creditcard) e então instalar
+```bash
+$ pip install python-creditcard-main.zip
+```
 2. Aplicar as migrações
 ```bash
 $ python manage.py migrate
@@ -34,7 +34,7 @@ $ python manage.py runserver
 ```bash
 $ cd app/tests
 ```
-2. Executar os testes presente no arquivo tests.py
+2. Executar os testes presentes no arquivo tests.py
 ```bash
 $ python -m pytest tests.py
 
