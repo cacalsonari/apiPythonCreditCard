@@ -24,9 +24,14 @@ export class CreditCardDetailsComponent implements OnInit {
   loadInfo(id: any): void{
     this.creditCardService.get(id)
       .subscribe(
-        data => {
-          const newData = this.formatData(data[0]);
-          this.creditCardInfo = newData;
+        data => {          
+          if(data[0] !== undefined){
+            const newData = this.formatData(data[0]);
+            this.creditCardInfo = newData;
+          }else{
+            this.creditCardInfo = data[0];
+          }
+          
         },
         error => { }
       );

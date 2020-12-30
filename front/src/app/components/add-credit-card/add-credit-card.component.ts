@@ -20,9 +20,9 @@ export class AddCreditCardComponent implements OnInit {
   ngOnInit(): void {
     this.ccForm = this.formBuilder.group({
       holder: ['', [Validators.required, Validators.minLength(2)]],
-      number: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+      number: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern(/^[0-9]+$/)]],
       exp_date: ['', [Validators.required, Validators.pattern(/^(1[0-2]|0?[1-9])[\/](?:[0-9]{2})?[0-9]{2}$/)]],
-      cvv: ['',  [Validators.minLength(3), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]]
+      cvv: ['',  [Validators.minLength(3), Validators.maxLength(4), Validators.pattern(/^[0-9]+$/)]]
     });
   }
 

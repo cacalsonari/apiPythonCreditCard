@@ -10,10 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  dataAuth = {
-    user: '',
-    password: ''
-  };
   loginForm: FormGroup;
   submitted = false;
   loading = false;
@@ -39,8 +35,8 @@ export class LoginComponent implements OnInit {
   login(): void{
     this.submitted = true;
     const data = {
-      username: this.dataAuth.user,
-      password: this.dataAuth.password
+      username: this.loginForm.value.user,
+      password: this.loginForm.value.password
     };
     if (!this.loginForm.invalid) {
       this.loading = true;

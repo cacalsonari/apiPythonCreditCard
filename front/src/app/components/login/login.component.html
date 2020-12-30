@@ -18,7 +18,7 @@
                             <div class="field">
                                 <label for="" class="label">Usuário</label>
                                 <div class="control has-icons-left">
-                                    <input type="user" placeholder="admin" name="user" [(ngModel)]="dataAuth.user" formControlName="user" class="input">
+                                    <input type="user" placeholder="admin" name="user" formControlName="user" class="input">
                                     <p *ngIf="submitted && f.user.errors && f.user.errors.required" class="help is-danger">O campo Usuário é obrigatório</p>
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-user"></i>
@@ -28,7 +28,7 @@
                             <div class="field">
                                 <label for="" class="label">Senha</label>
                                 <div class="control has-icons-left">
-                                <input type="password" name="password" [(ngModel)]="dataAuth.password" formControlName="password" placeholder="*******" class="input">
+                                <input type="password" name="password" formControlName="password" placeholder="*******" class="input">
                                 <p *ngIf="submitted && f.password.errors && f.password.errors.required" class="help is-danger">O campo Senha é obrigatório</p>
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-lock"></i>

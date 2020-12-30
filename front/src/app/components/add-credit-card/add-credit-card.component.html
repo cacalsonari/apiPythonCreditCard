@@ -41,6 +41,7 @@
               <input class="input" formControlName="number" type="text" placeholder="Exe: 4539578763621486" >
               <p *ngIf="submitted && f.number.errors && f.number.errors.required" class="help is-danger">O campo Número é obrigatório</p>
               <p *ngIf="submitted && f.number.errors && f.number.errors.minlength" class="help is-danger">O campo Número deve ter 16 caracteres</p>
+              <p *ngIf="submitted && f.number.errors && f.number.errors.maxlength" class="help is-danger">O campo Número deve ter 16 caracteres</p>
               <p *ngIf="submitted && f.number.errors && f.number.errors.pattern" class="help is-danger">O campo Número deve conter apenas números</p>
               <p *ngIf="error['number']" class="help is-danger">Número de cartão inválido</p>
           </div>
@@ -58,7 +59,8 @@
           <label class="label">Cvv</label>
           <div class="control">
               <input class="input" type="text" formControlName="cvv" placeholder="Exe: 1324">
-              <p *ngIf="submitted && f.cvv.errors && f.cvv.errors.minlength" class="help is-danger">O campo cvv deve ter no mínimo 3 e no máximo 4 caracteres</p>
+              <p *ngIf="submitted && f.cvv.errors && f.cvv.errors.minlength" class="help is-danger">O campo cvv deve ter no mínimo 3 caracteres</p>
+              <p *ngIf="submitted && f.cvv.errors && f.cvv.errors.maxlength" class="help is-danger">O campo cvv deve ter no máximo 4 caracteres</p>
               <p *ngIf="submitted && f.cvv.errors && f.cvv.errors.pattern" class="help is-danger">O campo cvv deve conter apenas números</p>
               <p *ngIf="error['cvv']" class="help is-danger">{{error['cvv']}}</p>
           </div>
