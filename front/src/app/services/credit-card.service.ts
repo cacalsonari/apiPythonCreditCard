@@ -11,29 +11,23 @@ export class CreditCardService {
 
   constructor(private http: HttpClient) { }
   token = localStorage.getItem('token');
-  header: any
-
-  ngOnInit(): void {}
-
-  authUser(data:any): Observable<any> {
-    return this.http.post(`${baseUrl}/token-auth`, data);
-  }
+  header: any;
 
   getAllCC(): Observable<any> {
     return this.http.get(`${baseUrl}/credit-card`, {
-      headers: {'Authorization': 'Token '+ this.token}
+      headers: {Authorization: 'Token ' + this.token}
     });
   }
 
-  get(id: any): Observable<any> {  
+  get(id: any): Observable<any> {
     return this.http.get(`${baseUrl}/credit-card?id=${id}`, {
-      headers: {'Authorization': 'Token '+ this.token}
-    });  
+      headers: {Authorization: 'Token ' + this.token}
+    });
   }
 
-  addCC(data:any): Observable<any> {
+  addCC(data: any): Observable<any> {
     return this.http.post(`${baseUrl}/credit-card`, data, {
-      headers: {'Authorization': 'Token '+ this.token}
+      headers: {Authorization: 'Token ' + this.token}
     });
   }
 }

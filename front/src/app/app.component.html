@@ -1,9 +1,13 @@
-<app-banner></app-banner>
-<hr>
-<div class="container is-mobile">
+<div *ngIf="isLogged">
+    <app-banner></app-banner>
+    <div class="container is-mobile">
+        <router-outlet></router-outlet>
+    </div>
+    <br>
+    <br>
+    <br>
+    <app-footer></app-footer>
+</div>
+<div *ngIf="!isLogged">
     <router-outlet></router-outlet>
 </div>
-<br>
-<br>
-<br>
-<app-footer></app-footer>

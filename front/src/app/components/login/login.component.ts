@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CreditCardService } from 'src/app/services/credit-card.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,41 +9,40 @@ import { CreditCardService } from 'src/app/services/credit-card.service';
 })
 export class LoginComponent implements OnInit {
 
-
   dataAuth = {
     user: '',
     password: ''
   };
-  loading = false
-  error = false
+  loading = false;
+  error = false;
 
-  constructor(private creditCardService: CreditCardService, public router: Router) { }
+  constructor(private authService: AuthService, public router: Router) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('token') !== null){
+    if (localStorage.getItem('token') !== null){
       this.router.navigate(['/']);
     }
   }
 
-  login(){
+  login(): void{
     const data = {
       username: this.dataAuth.user,
       password: this.dataAuth.password
     };
-    
+
     this.loading = true;
-    this.creditCardService.authUser(data)
+    this.authService.authUser(data)
       .subscribe(
-        response => {          
+        response => {
           this.loading = false;
           this.error = false;
-          localStorage.setItem('token', response['token']);
+          localStorage.setItem('token', response.token);
           this.router.navigate(['/']);
+          window.location.reload();
         },
-        error => {          
+        error => {
           this.loading = false;
-          
-          this.error = error["error"];
+          this.error = error.error;
         });
   }
 
