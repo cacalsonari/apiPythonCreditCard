@@ -30,6 +30,10 @@ $ cd app/tests
 2. Executar os testes presente no arquivo tests.py
 ```bash
 $ python -m pytest tests.py
+
+# or
+$ coverage run -m pytest tests.py
+$ coverage report -m
 ```
 
 ## Para execução - front
@@ -47,6 +51,9 @@ $ npm install
 ```bash
 $ ng serve
 ```
+5. Usuário para logar no sistema
+      Usuário: admin
+      Senha: 123456
 
 ## Documentação APIs
 
