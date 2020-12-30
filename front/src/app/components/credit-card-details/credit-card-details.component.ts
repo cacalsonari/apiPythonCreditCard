@@ -21,14 +21,14 @@ export class CreditCardDetailsComponent implements OnInit {
     }
   }
 
-  loadInfo(id:any): void{
+  loadInfo(id: any): void{
     this.creditCardService.get(id)
       .subscribe(
         data => {
           this.creditCardInfo = data[0];
         },
         error => { }
-      ); 
+      );
   }
 
 }

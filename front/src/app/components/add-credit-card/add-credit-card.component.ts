@@ -41,7 +41,7 @@ export class AddCreditCardComponent implements OnInit {
         },
         error => {
           this.loading = false;
-          this.error = error["error"];
+          this.error = error.error;
           this.submitted = false;
         });
   }
