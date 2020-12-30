@@ -52,7 +52,9 @@ $ npm install
 $ ng serve
 ```
 5. Usuário para logar no sistema
+      
       Usuário: admin
+      
       Senha: 123456
 
 ## Documentação APIs
