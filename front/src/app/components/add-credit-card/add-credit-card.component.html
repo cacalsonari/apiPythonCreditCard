@@ -3,59 +3,69 @@
       <div class="flip">
         <div class="front">
           <div class="chip"></div>
-          <div class="number">{{creditcard.number}}</div>
+          <div class="number">{{ccForm.value.number}}</div>
           <div class="card-holder">
             <label>Nome</label>
-            <div>{{creditcard.holder}}</div>
+            <div>{{ccForm.value.holder}}</div>
           </div>
           <div class="card-expiration-date">
             <label>Data Expiração</label>
-            <div>{{creditcard.exp_date}}</div>
+            <div>{{ccForm.value.exp_date}}</div>
           </div>
         </div>
         <div class="back">
           <div class="strip"></div>
           <div class="ccv">
             <label>CCV</label>
-            <div>{{creditcard.cvv}}</div>
+            <div>{{ccForm.value.cvv}}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="notification is-success" *ngIf="submitted === true">
-      <button class="delete" (click)="submitted=false"></button>
+    <div class="notification is-success" *ngIf="success === true">
+      <button class="delete" (click)="success=false"></button>
       Dados salvo com sucesso!
     </div>
-    <div class="field">
-        <label class="label">Nome</label>
-        <div class="control">
-            <input class="input" id="holder" name="holder" type="text" [(ngModel)]="creditcard.holder" placeholder="Exe: Teste" >
-            <p *ngIf="error['holder']" class="help is-danger">{{error['holder']}}</p>
-        </div>
-    </div>
-    <div class="field">
-        <label class="label">Número</label>
-        <div class="control">
-            <input class="input" type="text" [(ngModel)]="creditcard.number" placeholder="Exe: 4539578763621486" >
-            <p *ngIf="error['number']" class="help is-danger">{{error['number']}}</p>
-        </div>
-    </div>
-    <div class="field">
-        <label class="label">Data Expiração</label>
-        <div class="control">
-            <input class="input" type="text" [(ngModel)]="creditcard.exp_date" placeholder="Exe: 07/22" >
-            <p *ngIf="error['exp_date']" class="help is-danger">{{error['exp_date']}}</p>
-        </div>
-    </div>
-    <div class="field">
-        <label class="label">Cvv</label>
-        <div class="control">
-            <input class="input" type="text" [(ngModel)]="creditcard.cvv" placeholder="Exe: 1324">
-            <p *ngIf="error['cvv']" class="help is-danger">{{error['cvv']}}</p>
-        </div>
-    </div>
-      
-    <div class="field is-centered is-grouped">
-      <button class="button is-success is-fullwidth" [disabled]="loading === true" [ngClass]="{'is-loading':loading === true}" (click)="submit()">Salvar</button>
-    </div>
+    <form [formGroup]="ccForm" (ngSubmit)="submit()">
+      <div class="field">
+          <label class="label">Nome</label>
+          <div class="control">
+              <input class="input" formControlName="holder" type="text" placeholder="Exe: Teste" >
+              <p *ngIf="submitted && f.holder.errors && f.holder.errors.required" class="help is-danger">O campo Nome é obrigatório</p>
+              <p *ngIf="submitted && f.holder.errors && f.holder.errors.minlength" class="help is-danger">O campo Nome deve ter pelo menos 2 caracteres</p>
+          </div>
+      </div>
+      <div class="field">
+          <label class="label">Número</label>
+          <div class="control">
+              <input class="input" formControlName="number" type="text" placeholder="Exe: 4539578763621486" >
+              <p *ngIf="submitted && f.number.errors && f.number.errors.required" class="help is-danger">O campo Número é obrigatório</p>
+              <p *ngIf="submitted && f.number.errors && f.number.errors.minlength" class="help is-danger">O campo Número deve ter 16 caracteres</p>
+              <p *ngIf="submitted && f.number.errors && f.number.errors.pattern" class="help is-danger">O campo Número deve conter apenas números</p>
+              <p *ngIf="error['number']" class="help is-danger">Número de cartão inválido</p>
+          </div>
+      </div>
+      <div class="field">
+          <label class="label">Data Expiração</label>
+          <div class="control">
+              <input class="input" formControlName="exp_date" type="text" placeholder="Exe: 07/22" >
+              <p *ngIf="submitted && f.exp_date.errors && f.exp_date.errors.required" class="help is-danger">O campo Data Expiração é obrigatório</p>
+              <p *ngIf="submitted && f.exp_date.errors && f.exp_date.errors.pattern" class="help is-danger">O campo Data Expiração deve ser uma data válida e no formato mês/ano (07/20)</p>
+              <p *ngIf="error['exp_date']" class="help is-danger">{{error['exp_date']}}</p>
+          </div>
+      </div>
+      <div class="field">
+          <label class="label">Cvv</label>
+          <div class="control">
+              <input class="input" type="text" formControlName="cvv" placeholder="Exe: 1324">
+              <p *ngIf="submitted && f.cvv.errors && f.cvv.errors.minlength" class="help is-danger">O campo cvv deve ter no mínimo 3 e no máximo 4 caracteres</p>
+              <p *ngIf="submitted && f.cvv.errors && f.cvv.errors.pattern" class="help is-danger">O campo cvv deve conter apenas números</p>
+              <p *ngIf="error['cvv']" class="help is-danger">{{error['cvv']}}</p>
+          </div>
+      </div>
+        
+      <div class="field is-centered is-grouped">
+        <button class="button is-success is-fullwidth" [disabled]="loading === true" [ngClass]="{'is-loading':loading === true}">Salvar</button>
+      </div>
+    </form>
 </div>

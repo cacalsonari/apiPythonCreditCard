@@ -14,11 +14,12 @@
                             <button class="delete" (click)="error['non_field_errors']=undefined"></button>
                             <center>Usuário e/ou senha incorreta.</center>
                         </div>
+                        <form [formGroup]="loginForm" (ngSubmit)="login()">
                             <div class="field">
                                 <label for="" class="label">Usuário</label>
                                 <div class="control has-icons-left">
-                                    <input type="user" placeholder="admin" name="user" [(ngModel)]="dataAuth.user" class="input" required>
-                                    <p *ngIf="error['username']" class="help is-danger">{{error['username']}}</p>
+                                    <input type="user" placeholder="admin" name="user" [(ngModel)]="dataAuth.user" formControlName="user" class="input">
+                                    <p *ngIf="submitted && f.user.errors && f.user.errors.required" class="help is-danger">O campo Usuário é obrigatório</p>
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-user"></i>
                                     </span>
@@ -27,8 +28,8 @@
                             <div class="field">
                                 <label for="" class="label">Senha</label>
                                 <div class="control has-icons-left">
-                                <input type="password" name="password" [(ngModel)]="dataAuth.password" placeholder="*******" class="input" required>
-                                <p *ngIf="error['password']" class="help is-danger">{{error['password']}}</p>
+                                <input type="password" name="password" [(ngModel)]="dataAuth.password" formControlName="password" placeholder="*******" class="input">
+                                <p *ngIf="submitted && f.password.errors && f.password.errors.required" class="help is-danger">O campo Senha é obrigatório</p>
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-lock"></i>
                                 </span>
@@ -36,11 +37,11 @@
                             </div>
                             <br>
                             <div class="field">
-                                <button (click)="login()" class="button is-success is-fullwidth" [disabled]="loading === true" [ngClass]="{'is-loading':loading === true}">
+                                <button class="button is-success is-fullwidth" [disabled]="loading === true" [ngClass]="{'is-loading':loading === true}">
                                 Login
                                 </button>
                             </div>
-                        
+                        </form>
                     </div>
                 </div>
             </div>
