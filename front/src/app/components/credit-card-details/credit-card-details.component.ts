@@ -25,10 +25,19 @@ export class CreditCardDetailsComponent implements OnInit {
     this.creditCardService.get(id)
       .subscribe(
         data => {
-          this.creditCardInfo = data[0];
+          const newData = this.formatData(data[0]);
+          this.creditCardInfo = newData;
         },
         error => { }
       );
+  }
+
+  formatData(data: any): any{
+    const date = data.exp_date;
+    const splitDate = date.split('-');
+
+    data.exp_date = splitDate[1] + '/' + splitDate[0];
+    return data;
   }
 
 }

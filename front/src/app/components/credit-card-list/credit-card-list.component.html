@@ -13,7 +13,7 @@
   </article>    
 </div>
 
-<table *ngIf="creditCardList.length > 0 " class="table is-fullwidth">
+<table *ngIf="creditCardList.length > 0 " class="table is-fullwidth has-text-centered">
     <thead>
       <tr>
         <th>Id</th>
@@ -30,7 +30,8 @@
           <td>{{ creditCard.holder }}</td>
           <td>{{ creditCard.exp_date }}</td>
           <td>{{ creditCard.brand }}</td>
-          <td>{{ creditCard.cvv }}</td>
+          <td *ngIf="creditCard.cvv !== ''">{{ creditCard.cvv }}</td>
+          <td *ngIf="creditCard.cvv === ''"> - </td>
           <td><button class="button is-success" routerLink="/credit-card/{{ creditCard.id }}"><i class="fa fa-plus " aria-hidden="true"></i></button></td>
         </tr>
     </tbody>
