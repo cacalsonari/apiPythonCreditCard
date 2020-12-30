@@ -14,7 +14,7 @@ As escolhas de frameworks, libs e etc. para o projeto foram tomadas com base no 
 ```bash
 $ pip install -r requirements.txt
 ```
-1.1. Caso dê algum problema com a instalação da lib creditcard, baixar o repositório .zip [aqui](https://github.com/MaisTodos/python-creditcard) e então instalar
+1.1. Certifique-se de que a lib creditcard foi instalada, pois a ausência dessa pode acarretar em problemas no cadastro de cartões. Caso dê algum problema, baixe o repositório da lib em zip [aqui](https://github.com/MaisTodos/python-creditcard) e então instale
 ```bash
 $ pip install python-creditcard-main.zip
 ```
